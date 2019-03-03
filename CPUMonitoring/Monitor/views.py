@@ -13,14 +13,14 @@ def check_usage(ram_usage):
     print(t)
     while time.time()-t <= float(10):
         print(t-time.time())
-        if prev > float(0):
+        if prev > float(50):
             prev=dict(psutil.virtual_memory()._asdict())['percent']
             print("in if part")
         else:
             print("Usage is stable now")
             return False
     try:
-        send_mail('Ram over utilisation', 'RAM stayed for 50% for over 10 seconds.', 'krishnakumar@takvaviya.com', ['krishnakumar31096@gmail.com'], fail_silently=False)
+        send_mail('Ram over utilisation', 'RAM stayed for 50% for over 10 seconds.', 'noreply@takvaviya.com', ['krishnakumar31096@gmail.com'], fail_silently=False)
         return True
     except Exception as e:
         print("Exception occured in sending ,mail ",e)

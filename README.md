@@ -13,6 +13,15 @@ Steps to run the web app:
 `EMAIL_HOST_USER = 'emailid@mail.com'
 EMAIL_HOST_PASSWORD = 'password'
 `
+
+ Also change the to email address in the function  `check_usage()` in relative path  
+ 'CPUMonitoring/Monitor/views.py'   
+ 
+ change the to email id in the below line
+ 
+ `send_mail('Ram over utilisation', 'RAM stayed for 50% for over 10 seconds.', '**toemail@email.com**', ['receiver1@email.com','receiver2@email.com'...], fail_silently=False)`
+  
+  and add receivers email id as a list or array in the following argument
  
 3) Run the project by changing to the directory with manage.py file
 
