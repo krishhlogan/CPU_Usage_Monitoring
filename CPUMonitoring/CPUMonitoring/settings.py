@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Monitor',
+    'kombu.transport.django',
+    'djcelery',
+    'rest_framework',
+
+
 ]
 
 MIDDLEWARE = [
@@ -118,3 +124,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+BROKER_URL = "django://"
+
+import djcelery
+djcelery.setup_loader()
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'noreply@takvaviya.com'
+EMAIL_HOST_PASSWORD = 'Takvav!yaemail'
+EMAIL_PORT = 587
+
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = 'krishhlogan'
+# EMAIL_HOST_PASSWORD = 'October#3'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
