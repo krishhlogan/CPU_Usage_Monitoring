@@ -13,7 +13,7 @@ def check_usage(ram_usage):
     print(t)
     while time.time()-t <= float(10):
         print(t-time.time())
-        if prev > float(10):
+        if prev > float(0):
             prev=dict(psutil.virtual_memory()._asdict())['percent']
             print("in if part")
         else:
@@ -29,7 +29,7 @@ def check_usage(ram_usage):
 def store_tasks_todb():
     cpu_usage=psutil.cpu_percent()
     ram_usage=dict(psutil.virtual_memory()._asdict())['percent']
-    if ram_usage >float(10):
+    if ram_usage >float(50):
         if check_usage(ram_usage):
             print("Successfully sent email")
         else:
